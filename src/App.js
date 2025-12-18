@@ -28,6 +28,7 @@ const App = () => {
   return (
     <div className={`app-container ${weather?.main.temp > 20 ? 'warm' : 'cold'}`}>
       <div className="content-wrapper">
+       <h1 className="app-title">Sky Tracker</h1>
         <div className="search-box">
           <form onSubmit={fetchWeather}>
             <input 
