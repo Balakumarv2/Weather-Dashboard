@@ -1,83 +1,121 @@
-:root {
-  --glass: rgba(255, 255, 255, 0.2);
-  --text: #ffffff;
-}
 
-body {
+* {
   margin: 0;
-  font-family: 'Inter', sans-serif;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .app-container {
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
   transition: background 0.5s ease;
-  padding: 40px 20px;
+  padding: 20px;
 }
 
-/* Dynamic Backgrounds */
-.cold { background: linear-gradient(135deg, #00c6ff, #0072ff); }
-.warm { background: linear-gradient(135deg, #f83600, #f9d423); }
+
+.app-container.cold {
+  background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
+}
+
+.app-container.warm {
+  background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
+  background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+}
+
+.content-wrapper {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+  border: 1px border rgba(255, 255, 255, 0.18);
+  text-align: center;
+}
+
 
 .search-box form {
   display: flex;
-  background: var(--glass);
-  backdrop-filter: blur(10px);
-  padding: 10px;
-  border-radius: 30px;
-  border: 1px solid rgba(255,255,255,0.3);
+  gap: 10px;
+  margin-bottom: 20px;
 }
 
 .search-box input {
-  background: transparent;
+  flex: 1;
+  padding: 12px 15px;
+  border-radius: 10px;
   border: none;
   outline: none;
-  color: white;
-  padding: 5px 15px;
-  font-size: 1.1rem;
+  background: rgba(255, 255, 255, 0.8);
 }
 
 .search-box button {
-  background: white;
+  padding: 10px 15px;
+  border-radius: 10px;
   border: none;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.weather-display {
-  margin-top: 50px;
-  text-align: center;
+  background-color: #333;
   color: white;
-  width: 100%;
-  max-width: 500px;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-.main-info h1 {
-  font-size: 5rem;
+.search-box button:hover {
+  background-color: #555;
+}
+
+
+.main-info h2 {
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.temp {
+  font-size: 4rem;
   margin: 10px 0;
+}
+
+.description {
+  text-transform: capitalize;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  font-weight: 300;
 }
 
 .details-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
-  margin-top: 40px;
+  gap: 10px;
+  margin-top: 20px;
 }
 
 .detail-card {
-  background: var(--glass);
-  backdrop-filter: blur(15px);
-  padding: 20px;
-  border-radius: 20px;
-  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255, 255, 255, 0.3);
+  padding: 15px 5px;
+  border-radius: 12px;
 }
 
-.detail-card p { font-size: 0.8rem; opacity: 0.8; }
-.detail-card span { font-weight: bold; font-size: 1.2rem; }
+.detail-card .icon {
+  font-size: 1.5rem;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.detail-card p {
+  font-size: 0.75rem;
+  color: #555;
+}
+
+.detail-card span {
+  font-weight: bold;
+}
+
+.error-msg {
+  color: #ff4d4d;
+  background: rgba(255, 255, 255, 0.5);
+  padding: 10px;
+  border-radius: 8px;
+}
